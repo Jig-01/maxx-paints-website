@@ -1,0 +1,19 @@
+{
+  "name": "maxxpaints",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "lucide": "^1.28.0",
+    "sass": "^1.102.0",
+    "vite-plugin-handlebars": "^2.0.3"
+  }
+}

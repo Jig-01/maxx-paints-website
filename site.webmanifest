@@ -1,0 +1,12 @@
+{
+  "name": "Maxx Paints",
+  "short_name": "Maxx Paints",
+  "description": "Maxx Paints - Paint and surface solutions for beautiful, durable spaces.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFDF7",
+  "theme_color": "#102A43",
+  "orientation": "portrait-primary",
+  "icons": []
+}

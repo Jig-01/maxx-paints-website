@@ -1,6 +1,18 @@
 /* =========================================================
    MAXX PAINTS
    PRODUCT CATALOGUE
+   ---------------------------------------------------------
+   Single source of truth for all products.
+   Used by:
+   - Products listing page
+   - Product filters
+   - Product detail pages
+   - Related products
+   ========================================================= */
+
+
+/* =========================================================
+   PRODUCT IMAGES
    ========================================================= */
 
 import distemperImage from "../assets/images/products/distemper.png";
@@ -17,174 +29,460 @@ import whiteCementImage from "../assets/images/products/white-cement.png";
 /* =========================================================
    PRODUCT DATA
    ---------------------------------------------------------
+   IMPORTANT:
    Add / edit products here only.
    ========================================================= */
 
 const products = [
 
-    {
-        id: "distemper",
-        name: "Maxx Acrylic Distemper",
-        slug: "maxx-acrylic-distemper",
+  {
+    name: "Maxx Acrylic Distemper",
+    slug: "maxx-acrylic-distemper",
+    brand: "MAGPA",
+    category: "Distemper",
+    image: distemperImage,
 
-        brand: "magpa",
-        brandName: "MAGPA",
+    tagline: "Smooth, bright and economical walls.",
+    description:
+      "Maxx Acrylic Distemper is designed to give interior walls a smooth, attractive finish with reliable coverage and lasting colour. An economical choice for homes and everyday painting projects.",
 
-        category: "distemper",
-        categoryName: "Distemper",
+    features: [
+      "Smooth Finish",
+      "Good Coverage",
+      "Easy Application",
+      "Bright Colours",
+      "Economical Choice",
+      "Interior Wall Finish"
+    ],
 
-        image: distemperImage,
+    applications: [
+      "Living Rooms",
+      "Bedrooms",
+      "Dining Areas",
+      "Ceilings",
+      "Offices",
+      "Shops"
+    ],
 
-        description:
-            "A smooth and economical wall finish designed for attractive and durable interior surfaces."
-    },
+    surfaces: [
+      "Cement Plaster",
+      "Concrete Walls",
+      "Wall Putty",
+      "Previously Painted Walls"
+    ],
 
+    packs: ["5 KG", "10 KG", "20 KG"],
 
-    {
-        id: "emulsion",
-        name: "Aura Luxury Emulsion",
-        slug: "aura-luxury-emulsion",
+    applicationSteps: [
+      "Clean and prepare the surface.",
+      "Repair cracks and surface imperfections.",
+      "Apply a suitable wall primer.",
+      "Allow the primer to dry completely.",
+      "Apply the required coats of distemper."
+    ]
+  },
 
-        brand: "multimaxx",
-        brandName: "MULTIMAXX",
+  {
+    name: "Aura Luxury Emulsion",
+    slug: "aura-luxury-emulsion",
+    brand: "MULTIMAXX",
+    category: "Interior Paints",
+    image: emulsionImage,
 
-        category: "interior",
-        categoryName: "Interior Paints",
+    tagline: "Where luxury meets high-gloss brilliance.",
+    description:
+      "MULTIMAXX Aura Luxury Emulsion is a premium water-based paint designed for an ultra-smooth, high-gloss finish with excellent whiteness, shine, coverage and long-lasting protection.",
 
-        image: emulsionImage,
+    features: [
+      "High Gloss Finish",
+      "Silky Smooth Surface",
+      "Maxx Coverage",
+      "Maxx Whiteness",
+      "Weather Protection",
+      "Low VOC",
+      "Excellent Washability",
+      "Long Lasting Protection"
+    ],
 
-        description:
-            "A refined interior paint designed to provide beautiful walls with a smooth and lasting finish."
-    },
+    applications: [
+      "Living Rooms",
+      "Bedrooms",
+      "Halls",
+      "Offices",
+      "Showrooms",
+      "Hotels",
+      "Premium Homes"
+    ],
 
+    surfaces: [
+      "Interior Walls",
+      "Exterior Walls",
+      "Ceilings",
+      "Properly Prepared Surfaces"
+    ],
 
-    {
-        id: "primer",
-        name: "Prime Water Base Primer",
-        slug: "prime-water-base-primer",
+    packs: ["1 L", "4 L", "10 L", "20 L"],
 
-        brand: "maxx",
-        brandName: "MAXX",
+    applicationSteps: [
+      "Ensure the surface is clean, dry and properly prepared.",
+      "Repair cracks and imperfections.",
+      "Apply a suitable primer.",
+      "Allow the primer to dry completely.",
+      "Apply the recommended coats of Aura Emulsion."
+    ]
+  },
 
-        category: "primer",
-        categoryName: "Primers",
+  {
+    name: "Prime Water Base Primer",
+    slug: "prime-water-base-primer",
+    brand: "MAXX",
+    category: "Primers",
+    image: primerImage,
 
-        image: primerImage,
+    tagline: "The right foundation for a better finish.",
+    description:
+      "MAXX PRIME Water Base Wall Primer provides a strong foundation for decorative coatings. It is designed to improve adhesion, coverage and the overall finish of painted surfaces.",
 
-        description:
-            "A dependable base coat that prepares the surface for a smoother and more durable paint finish."
-    },
+    features: [
+      "Water Based Formula",
+      "Strong Adhesion",
+      "Good Coverage",
+      "Low Odour",
+      "Smooth Foundation",
+      "Suitable for Interior & Exterior"
+    ],
 
+    applications: [
+      "Residential Walls",
+      "Commercial Buildings",
+      "Offices",
+      "Apartments",
+      "Renovation Projects"
+    ],
 
-    {
-        id: "snow-white",
-        name: "Snow White",
-        slug: "snow-white",
+    surfaces: [
+      "Cement Plaster",
+      "Concrete",
+      "Wall Putty",
+      "Interior Walls",
+      "Exterior Walls"
+    ],
 
-        brand: "magpa",
-        brandName: "MAGPA",
+    packs: ["1 L", "4 L", "10 L", "20 L"],
 
-        category: "cement",
-        categoryName: "Cement Paints",
+    applicationSteps: [
+      "Clean the surface thoroughly.",
+      "Remove loose particles and dust.",
+      "Repair cracks and imperfections.",
+      "Apply primer evenly using brush or roller.",
+      "Allow the surface to dry before applying topcoat."
+    ]
+  },
 
-        image: snowWhiteImage,
+  {
+    name: "Snow White",
+    slug: "snow-white",
+    brand: "MAGPA",
+    category: "Limewash",
+    image: snowWhiteImage,
 
-        description:
-            "A bright cement-based finish designed for attractive and durable surface protection."
-    },
+    tagline: "Bright white. Smooth touch. Everyday freshness.",
+    description:
+      "MAGPA Snow White Limewash is designed to provide a bright white appearance and smooth-touch finish for large-scale wall and surface applications.",
 
+    features: [
+      "Bright White Finish",
+      "Smooth Touch Finish",
+      "Economical Coverage",
+      "Easy Application",
+      "Suitable for Large Areas"
+    ],
 
-    {
-        id: "wall-putty",
-        name: "Wall Putty",
-        slug: "wall-putty",
+    applications: [
+      "Residential Exteriors",
+      "Commercial Buildings",
+      "Institutional Buildings",
+      "Large Wall Areas"
+    ],
 
-        brand: "multi-maxx",
-        brandName: "MULTI MAXX",
+    surfaces: [
+      "Masonry Walls",
+      "Cement Surfaces",
+      "Prepared Exterior Surfaces"
+    ],
 
-        category: "putty",
-        categoryName: "Wall Putty",
+    packs: ["25 KG"],
 
-        image: wallPuttyImage,
+    applicationSteps: [
+      "Prepare and clean the surface.",
+      "Remove loose dust and old material.",
+      "Prepare the product as recommended.",
+      "Apply evenly over the prepared surface.",
+      "Allow sufficient drying time."
+    ]
+  },
 
-        description:
-            "A smooth surface preparation solution that creates an ideal base for the final coat of paint."
-    },
+  {
+    name: "Wall Putty",
+    slug: "wall-putty",
+    brand: "MULTI MAXX",
+    category: "Wall Putty",
+    image: wallPuttyImage,
 
+    tagline: "Create the perfect canvas for your walls.",
+    description:
+      "MULTIMAXX Wall Putty is designed to create a smooth, strong and uniform surface before painting. Its smooth finish helps create a better base for subsequent paint coats.",
 
-    {
-        id: "wall-maxx",
-        name: "Wall Maxx",
-        slug: "wall-maxx",
+    features: [
+      "Smooth Surface",
+      "Strong Adhesion",
+      "Bright White Finish",
+      "Weather Resistant",
+      "Helps Reduce Paint Consumption",
+      "Easy Application"
+    ],
 
-        brand: "magpa",
-        brandName: "MAGPA",
+    applications: [
+      "New Construction",
+      "Home Renovation",
+      "Residential Projects",
+      "Commercial Projects",
+      "Interior Walls",
+      "Exterior Walls"
+    ],
 
-        category: "emulsion",
-        categoryName: "Acrylic Emulsion",
+    surfaces: [
+      "Concrete",
+      "Plastered Walls",
+      "Cement Surfaces",
+      "Ceilings"
+    ],
 
-        image: wallMaxxImage,
+    packs: ["1 KG", "40 KG"],
 
-        description:
-            "A smooth surface preparation solution that creates an ideal base for the final coat of paint."
-    },
+    applicationSteps: [
+      "Clean the surface and remove loose material.",
+      "Prepare the putty according to recommended procedure.",
+      "Apply evenly on the prepared surface.",
+      "Allow the coat to dry.",
+      "Sand and smooth the surface before painting."
+    ]
+  },
 
+  {
+    name: "Wall Maxx",
+    slug: "wall-maxx",
+    brand: "MAGPA",
+    category: "Acrylic Emulsion",
+    image: wallMaxxImage,
 
-    {
-        id: "smart-coat",
-        name: "Smart Coat",
-        slug: "Smart-Coat",
+    tagline: "A smooth finish with everyday protection.",
+    description:
+      "MAGPA Wall Maxx Acrylic Emulsion is designed for attractive wall finishes with coverage, water resistance and protection against everyday dust and wear.",
 
-        brand: "magpa",
-        brandName: "MAGPA",
+    features: [
+      "Maxx Coverage",
+      "Soft Touch Finish",
+      "Anti-Dust",
+      "Water Resistance",
+      "Sparkling White",
+      "Smooth Finish"
+    ],
 
-        category: "emulsion",
-        categoryName: "Acrylic Emulsion",
+    applications: [
+      "Living Rooms",
+      "Bedrooms",
+      "Offices",
+      "Shops",
+      "Commercial Spaces"
+    ],
 
-        image: smartCoatImage,
+    surfaces: [
+      "Cement Plaster",
+      "Concrete Walls",
+      "Wall Putty",
+      "Previously Painted Walls"
+    ],
 
-        description:
-            "A smooth surface preparation solution that creates an ideal base for the final coat of paint."
-    },
+    packs: ["1 L", "4 L", "10 L", "20 L"],
 
+    applicationSteps: [
+      "Prepare a clean and dry surface.",
+      "Repair cracks and imperfections.",
+      "Apply suitable primer.",
+      "Allow primer to dry.",
+      "Apply the recommended coats of Wall Maxx."
+    ]
+  },
 
-    {
-        id: "maxx-cem",
-        name: "Maxx Cem",
-        slug: "Maxx-Cem",
+  {
+    name: "Smart Coat",
+    slug: "smart-coat",
+    brand: "MAGPA",
+    category: "Acrylic Emulsion",
+    image: smartCoatImage,
 
-        brand: "magpa",
-        brandName: "MAGPA",
+    tagline: "Smart choice. Beautiful walls.",
+    description:
+      "SMART COAT Acrylic Emulsion combines smooth finish, excellent coverage, vibrant colours and reliable protection at an economical price. It is designed primarily for interior walls and can also be used on exterior walls under suitable conditions.",
 
-        category: "cement",
-        categoryName: "Cement Paints",
+    features: [
+      "Smooth Finish",
+      "Excellent Coverage",
+      "Vibrant Colours",
+      "Low VOC",
+      "Water Based",
+      "Quick Drying",
+      "Easy Brush & Roller Application",
+      "Economical"
+    ],
 
-        image: maxxCemImage,
+    applications: [
+      "Living Rooms",
+      "Bedrooms",
+      "Dining Rooms",
+      "Ceilings",
+      "Offices",
+      "Schools",
+      "Hotels",
+      "Apartments",
+      "Shops",
+      "Showrooms"
+    ],
 
-        description:
-            "A smooth surface preparation solution that creates an ideal base for the final coat of paint."
-    },
+    surfaces: [
+      "Cement Plaster",
+      "Concrete Walls",
+      "Wall Putty",
+      "Brick Masonry",
+      "Interior Walls",
+      "Previously Painted Walls",
+      "Primed Exterior Walls"
+    ],
 
+    packs: ["1 L", "4 L", "10 L", "20 L"],
 
-    {
-        id: "white-cement",
-        name: "White Cement",
-        slug: "White-Cement",
+    applicationSteps: [
+      "Clean the surface thoroughly.",
+      "Repair cracks and imperfections using wall putty.",
+      "Apply one coat of suitable wall primer.",
+      "Allow the primer to dry completely.",
+      "Apply 2–3 coats of SMART COAT."
+    ]
+  },
 
-        brand: "magpa",
-        brandName: "MAGPA",
+  {
+    name: "Maxx Cem",
+    slug: "maxx-cem",
+    brand: "MAGPA",
+    category: "Cement Paints",
+    image: maxxCemImage,
 
-        category: "cement",
-        categoryName: "Cement Paints",
+    tagline: "Durable cement finish for dependable protection.",
+    description:
+      "MAXX CEM is a cement-based coating designed to provide a durable, decorative and water-resistant finish for suitable wall surfaces.",
 
-        image: whiteCementImage,
+    features: [
+      "Plastic Finish",
+      "Decorative Finish",
+      "Water Resistant",
+      "Strong Surface Adhesion",
+      "Durable Finish"
+    ],
 
-        description:
-            "A smooth surface preparation solution that creates an ideal base for the final coat of paint."
-    }
+    applications: [
+      "Residential Buildings",
+      "Commercial Buildings",
+      "Exterior Walls",
+      "Large Surface Projects"
+    ],
 
+    surfaces: [
+      "Cement Surfaces",
+      "Concrete Walls",
+      "Masonry Surfaces"
+    ],
+
+    packs: ["20 KG"],
+
+    applicationSteps: [
+      "Clean and prepare the surface.",
+      "Repair damaged areas.",
+      "Prepare the cement paint as recommended.",
+      "Apply evenly over the surface.",
+      "Allow adequate drying between coats."
+    ]
+  },
+
+  {
+    name: "White Cement",
+    slug: "white-cement",
+    brand: "MAGPA",
+    category: "Decorative White Cement",
+    image: whiteCementImage,
+
+    tagline: "A clean, bright foundation for beautiful finishes.",
+    description:
+      "MAGPA Decorative White Cement provides a bright white base for construction and finishing applications where a clean and uniform appearance is required.",
+
+    features: [
+      "Bright White",
+      "Smooth Finish",
+      "Decorative Application",
+      "Uniform Appearance",
+      "Versatile Surface Use"
+    ],
+
+    applications: [
+      "Wall Finishing",
+      "Decorative Work",
+      "Interior Projects",
+      "Construction Applications"
+    ],
+
+    surfaces: [
+      "Cement Surfaces",
+      "Concrete",
+      "Masonry"
+    ],
+
+    packs: ["25 KG"],
+
+    applicationSteps: [
+      "Prepare and clean the surface.",
+      "Remove loose particles.",
+      "Prepare the material according to recommended practice.",
+      "Apply uniformly.",
+      "Allow the surface to set and dry properly."
+    ]
+  }
 
 ];
+
+window.MAXX_PRODUCTS = products;
+
+
+/* =========================================================
+   UTILITY
+   ========================================================= */
+
+function normalize(value) {
+
+    return String(value || "")
+        .trim()
+        .toLowerCase();
+
+}
+
+
+/* =========================================================
+   GLOBAL PRODUCT DATA
+   ---------------------------------------------------------
+   Product detail JS will reuse this.
+   No duplicate product database required.
+   ========================================================= */
+
+//window.MAXX_PRODUCTS = products;
 
 
 /* =========================================================
@@ -217,20 +515,7 @@ const productFilters =
 
 
 /* =========================================================
-   FILTER STATE
-   ========================================================= */
-
-const filterState = {
-
-    categories: [],
-
-    brands: []
-
-};
-
-
-/* =========================================================
-   CATEGORY / BRAND FILTER INPUTS
+   FILTER INPUTS
    ========================================================= */
 
 const categoryInputs =
@@ -242,6 +527,19 @@ const brandInputs =
     document.querySelectorAll(
         'input[data-filter="brand"]'
     );
+
+
+/* =========================================================
+   FILTER STATE
+   ========================================================= */
+
+const filterState = {
+
+    categories: [],
+
+    brands: []
+
+};
 
 
 /* =========================================================
@@ -257,35 +555,32 @@ if (heroProductCount) {
 
 
 /* =========================================================
-   NORMALIZE VALUES
-   ========================================================= */
-
-function normalize(value) {
-
-    return String(value || "")
-        .trim()
-        .toLowerCase();
-
-}
-
-
-/* =========================================================
-   READ URL FILTER
+   READ URL FILTERS
    ---------------------------------------------------------
    Example:
    /products.html?category=interior
+   /products.html?brand=magpa
+   /products.html?category=cement,putty
    ========================================================= */
 
 function readURLFilters() {
 
     const params =
-        new URLSearchParams(window.location.search);
+        new URLSearchParams(
+            window.location.search
+        );
+
 
     const category =
-        normalize(params.get("category"));
+        normalize(
+            params.get("category")
+        );
+
 
     const brand =
-        normalize(params.get("brand"));
+        normalize(
+            params.get("brand")
+        );
 
 
     if (category) {
@@ -313,7 +608,7 @@ function readURLFilters() {
 
 
 /* =========================================================
-   APPLY URL FILTERS TO CHECKBOXES
+   SYNC CHECKBOXES
    ========================================================= */
 
 function syncCheckboxes() {
@@ -341,7 +636,7 @@ function syncCheckboxes() {
 
 
 /* =========================================================
-   GET FILTERED PRODUCTS
+   FILTER PRODUCTS
    ========================================================= */
 
 function getFilteredProducts() {
@@ -357,17 +652,54 @@ function getFilteredProducts() {
 
         const categoryMatch =
             filterState.categories.length === 0 ||
-            filterState.categories.includes(productCategory);
+            filterState.categories.includes(
+                productCategory
+            );
 
 
         const brandMatch =
             filterState.brands.length === 0 ||
-            filterState.brands.includes(productBrand);
+            filterState.brands.includes(
+                productBrand
+            );
 
 
         return categoryMatch && brandMatch;
 
     });
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ---------------------------------------------------------
+   Prevents product data from breaking card markup.
+   ========================================================= */
+
+function escapeHTML(value = "") {
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   PRODUCT URL
+   ========================================================= */
+
+function getProductURL(product) {
+
+    return `/product/${product.slug}.html`;
 
 }
 
@@ -387,7 +719,7 @@ function createProductCard(product, index) {
 
 
     card.href =
-        `/product/${product.slug}.html`;
+        getProductURL(product);
 
 
     card.setAttribute(
@@ -405,13 +737,20 @@ function createProductCard(product, index) {
         <div class="product-image">
 
             <span class="product-badge">
-                ${product.categoryName}
+                ${escapeHTML(
+                    product.categoryName
+                )}
             </span>
 
             <img
                 src="${product.image}"
-                alt="${product.name} - ${product.brandName}"
+                alt="${escapeHTML(
+                    product.name
+                )} - ${escapeHTML(
+                    product.brandName
+                )}"
                 loading="lazy"
+                decoding="async"
             >
 
         </div>
@@ -420,17 +759,23 @@ function createProductCard(product, index) {
         <div class="product-info">
 
             <span class="product-brand">
-                ${product.brandName}
+                ${escapeHTML(
+                    product.brandName
+                )}
             </span>
 
 
             <h3 class="product-name">
-                ${product.name}
+                ${escapeHTML(
+                    product.name
+                )}
             </h3>
 
 
             <p class="product-description">
-                ${product.description}
+                ${escapeHTML(
+                    product.description
+                )}
             </p>
 
 
@@ -440,7 +785,10 @@ function createProductCard(product, index) {
                     View Product
                 </span>
 
-                <span class="product-arrow">
+                <span
+                    class="product-arrow"
+                    aria-hidden="true"
+                >
                     →
                 </span>
 
@@ -462,8 +810,17 @@ function createProductCard(product, index) {
 
 function renderProducts() {
 
+    /*
+       product.js is loaded globally through main.js.
+
+       On product detail pages there is no productsGrid,
+       so simply stop here.
+    */
+
     if (!productsGrid) {
+
         return;
+
     }
 
 
@@ -510,7 +867,9 @@ function renderProducts() {
 function updateResultCount(count) {
 
     if (!resultCount) {
+
         return;
+
     }
 
 
@@ -527,7 +886,9 @@ function updateResultCount(count) {
 function updateEmptyState(count) {
 
     if (!productsEmpty) {
+
         return;
+
     }
 
 
@@ -535,16 +896,18 @@ function updateEmptyState(count) {
         count !== 0;
 
 
-    productsGrid.hidden =
-        count === 0;
+    if (productsGrid) {
+
+        productsGrid.hidden =
+            count === 0;
+
+    }
 
 }
 
 
 /* =========================================================
    FILTER COUNTS
-   ---------------------------------------------------------
-   Shows how many products belong to each category/brand.
    ========================================================= */
 
 function updateFilterCounts() {
@@ -557,10 +920,15 @@ function updateFilterCounts() {
     products.forEach(product => {
 
         const category =
-            normalize(product.category);
+            normalize(
+                product.category
+            );
+
 
         const brand =
-            normalize(product.brand);
+            normalize(
+                product.brand
+            );
 
 
         categoryCounts[category] =
@@ -574,7 +942,9 @@ function updateFilterCounts() {
 
 
     document
-        .querySelectorAll("[data-category-count]")
+        .querySelectorAll(
+            "[data-category-count]"
+        )
         .forEach(element => {
 
             const category =
@@ -590,7 +960,9 @@ function updateFilterCounts() {
 
 
     document
-        .querySelectorAll("[data-brand-count]")
+        .querySelectorAll(
+            "[data-brand-count]"
+        )
         .forEach(element => {
 
             const brand =
@@ -615,18 +987,29 @@ function updateFilterState() {
 
     filterState.categories =
         Array.from(categoryInputs)
-            .filter(input => input.checked)
-            .map(input => normalize(input.value));
+
+            .filter(input =>
+                input.checked
+            )
+
+            .map(input =>
+                normalize(input.value)
+            );
 
 
     filterState.brands =
         Array.from(brandInputs)
-            .filter(input => input.checked)
-            .map(input => normalize(input.value));
+
+            .filter(input =>
+                input.checked
+            )
+
+            .map(input =>
+                normalize(input.value)
+            );
 
 
     updateURL();
-
 
     renderProducts();
 
@@ -635,8 +1018,6 @@ function updateFilterState() {
 
 /* =========================================================
    UPDATE URL
-   ---------------------------------------------------------
-   Keeps filters shareable/bookmarkable.
    ========================================================= */
 
 function updateURL() {
@@ -671,7 +1052,9 @@ function updateURL() {
 
     const newURL =
         query
+
             ? `${window.location.pathname}?${query}`
+
             : window.location.pathname;
 
 
@@ -695,18 +1078,18 @@ function clearFilters() {
     filterState.brands = [];
 
 
-    categoryInputs.forEach(
-        input => {
-            input.checked = false;
-        }
-    );
+    categoryInputs.forEach(input => {
+
+        input.checked = false;
+
+    });
 
 
-    brandInputs.forEach(
-        input => {
-            input.checked = false;
-        }
-    );
+    brandInputs.forEach(input => {
+
+        input.checked = false;
+
+    });
 
 
     updateURL();
@@ -717,7 +1100,7 @@ function clearFilters() {
 
 
 /* =========================================================
-   CATEGORY / BRAND EVENTS
+   CATEGORY EVENTS
    ========================================================= */
 
 categoryInputs.forEach(input => {
@@ -729,6 +1112,10 @@ categoryInputs.forEach(input => {
 
 });
 
+
+/* =========================================================
+   BRAND EVENTS
+   ========================================================= */
 
 brandInputs.forEach(input => {
 
@@ -768,7 +1155,10 @@ if (emptyClearFilters) {
    MOBILE FILTER DRAWER
    ========================================================= */
 
-if (mobileFilterToggle && productFilters) {
+if (
+    mobileFilterToggle &&
+    productFilters
+) {
 
     mobileFilterToggle.addEventListener(
         "click",
@@ -796,7 +1186,9 @@ if (mobileFilterToggle && productFilters) {
    ========================================================= */
 
 document
-    .querySelectorAll("[data-filter-toggle]")
+    .querySelectorAll(
+        "[data-filter-toggle]"
+    )
     .forEach(button => {
 
         button.addEventListener(
@@ -804,7 +1196,9 @@ document
             () => {
 
                 const group =
-                    button.closest(".filter-group");
+                    button.closest(
+                        ".filter-group"
+                    );
 
 
                 const options =
@@ -820,22 +1214,29 @@ document
 
 
                 if (!options) {
+
                     return;
+
                 }
 
 
                 const isHidden =
-                    options.style.display === "none";
+                    options.style.display ===
+                    "none";
 
 
                 options.style.display =
-                    isHidden ? "" : "none";
+                    isHidden
+                        ? ""
+                        : "none";
 
 
                 if (icon) {
 
                     icon.textContent =
-                        isHidden ? "−" : "+";
+                        isHidden
+                            ? "−"
+                            : "+";
 
                 }
 
@@ -846,7 +1247,7 @@ document
 
 
 /* =========================================================
-   INITIALIZE
+   INITIALIZE PRODUCT PAGE
    ========================================================= */
 
 readURLFilters();
@@ -854,13 +1255,3 @@ readURLFilters();
 syncCheckboxes();
 
 renderProducts();
-
-
-/* =========================================================
-   OPTIONAL GLOBAL ACCESS
-   ---------------------------------------------------------
-   Useful later if product data needs to be reused.
-   ========================================================= */
-
-window.MAXX_PRODUCTS =
-    products;

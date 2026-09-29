@@ -425,17 +425,17 @@
 }
 
 
-@media (max-width: 1000px) {
+// @media (max-width: 1000px) {
 
-    .nav-menu {
-        gap: 17px;
-    }
+//     .nav-menu {
+//         gap: 17px;
+//     }
 
-    .nav-cta {
-        display: none;
-    }
+//     .nav-cta {
+//         display: none;
+//     }
 
-}
+// }
 
 
 @media (max-width: 850px) {
@@ -446,63 +446,31 @@
 
     .site-header {
         top: 15px;
-
         width: calc(100% - 24px);
-
         border-radius: 17px;
+        z-index: 9999;
     }
 
     .nav-inner {
         height: 70px;
-
         padding: 0 16px;
     }
 
-    .brand-maxx {
-        font-size: 25px;
-    
+    .brand-logo {
+        width: 150px;
+        height: 80px;
+        max-width: none;
+        max-height: none;
+        object-fit: contain;
+        transform: translateX(-20px);
     }
 
-    .brand-paints {
-        font-size: 9px;
-        
-    }
+    /* =========================
+       MOBILE NAVIGATION
+       ========================= */
 
     .desktop-navigation {
         position: fixed;
-
-        top: 70px;
-        left: 0;
-        right: 0;
-
-        width: 100%;
-
-        height: calc(100vh - 70px);
-
-        padding: 20px;
-
-        display: block;
-
-        background: rgba(255,255,255,.97);
-
-        backdrop-filter: blur(20px);
-
-        transform: translateX(100%);
-
-        transition: .3s ease;
-
-        overflow-y: auto;
-    }
-
-    .desktop-navigation.menu-active {
-        transform: translateX(0);
-    }
-
-    @media (max-width: 850px) {
-
-    .desktop-navigation {
-        position: fixed;
-
         top: 70px;
         left: 0;
         right: 0;
@@ -514,40 +482,38 @@
 
         display: block;
 
-        background: rgba(255,255,255,.97);
-
+        background: rgba(255, 255, 255, 0.97);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
 
         transform: translateX(100%);
-
         visibility: hidden;
         opacity: 0;
         pointer-events: none;
 
         transition:
-            transform .3s ease,
-            opacity .3s ease,
-            visibility .3s ease;
+            transform 0.3s ease,
+            opacity 0.3s ease,
+            visibility 0.3s ease;
 
         overflow-y: auto;
+        z-index: 9998;
     }
 
     .desktop-navigation.menu-active {
         transform: translateX(0);
-
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
     }
 
-}
-
-
     .nav-menu {
         flex-direction: column;
         align-items: stretch;
-
         gap: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
     .nav-menu > li {
@@ -561,7 +527,6 @@
         justify-content: space-between;
 
         color: $text;
-
         font-size: 14px;
     }
 
@@ -569,9 +534,48 @@
         display: none;
     }
 
+    /* =========================
+       MOBILE MENU BUTTON
+       ========================= */
+
     .mobile-menu-button {
         display: flex;
+
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+        border: 0;
+
+        background: transparent;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        position: relative;
+        z-index: 10000;
+
+        cursor: pointer;
     }
+
+    .mobile-menu-button span {
+        display: block;
+
+        width: 21px;
+        height: 2px;
+
+        background: #fff;
+
+        transition:
+            transform 0.25s ease,
+            opacity 0.25s ease;
+    }
+
+    /* =========================
+       PRODUCTS MEGA MENU
+       ========================= */
 
     .products-megamenu {
         position: static;
@@ -601,6 +605,7 @@
         border-radius: 0;
 
         box-shadow: none;
+
         background: transparent;
     }
 
@@ -626,4 +631,7 @@
         height: 38px;
     }
 
+    .nav-cta {
+        display: none;
+    }
 }

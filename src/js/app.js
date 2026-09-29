@@ -527,3 +527,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+/* CONTACT FORM JS*/
+
+const contactForm = document.querySelector("#maxxContactForm");
+
+contactForm?.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const submitButton =
+        contactForm.querySelector(".contact-submit");
+
+    const originalText =
+        submitButton.innerHTML;
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = "Sending...";
+
+    try {
+
+        const formData = new FormData(contactForm);
+
+        const data = Object.fromEntries(formData.entries());
+
+        const response = await fetch(
+            "http://localhost:3001/api/contact",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(data)
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                result.message || "Submission failed"
+            );
+        }
+
+        contactForm.reset();
+
+        submitButton.innerHTML =
+            "Enquiry Sent ✓";
+
+        console.log(result.message);
+
+    } catch (error) {
+
+        console.error(
+            "Contact form error:",
+            error
+        );
+
+        submitButton.innerHTML =
+            "Try Again";
+
+    } finally {
+
+        setTimeout(() => {
+
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalText;
+
+        }, 3000);
+
+    }
+});

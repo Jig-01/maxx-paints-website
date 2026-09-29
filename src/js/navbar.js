@@ -1,62 +1,142 @@
-const mobileButton =
-    document.querySelector(".mobile-menu-button");
+/* =========================================================
+   MAXX PAINTS — NAVBAR
+   Mobile menu + Products mega menu
+   ========================================================= */
 
-const navigation =
-    document.querySelector(".desktop-navigation");
+document.addEventListener("click", (event) => {
 
-const productsTrigger =
-    document.querySelector(".products-trigger");
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
 
-const productsMenu =
-    document.querySelector(".has-megamenu");
+    const mobileButton =
+        event.target.closest(".mobile-menu-button");
 
+    if (mobileButton) {
 
-/* Mobile navigation */
+        const navigation =
+            document.querySelector(".desktop-navigation");
 
-mobileButton?.addEventListener("click", () => {
+        if (!navigation) return;
 
-    const open =
-        navigation.classList.toggle("menu-active");
+        event.preventDefault();
+        event.stopPropagation();
 
-    mobileButton.setAttribute(
-        "aria-expanded",
-        String(open)
-    );
+        const isOpen =
+            navigation.classList.toggle("menu-active");
 
-});
+        mobileButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
 
+        mobileButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close Menu" : "Open Menu"
+        );
 
-/* Products mega menu */
-
-productsTrigger?.addEventListener("click", (event) => {
-
-    event.preventDefault();
-
-    const open =
-        productsMenu.classList.toggle("menu-open");
-
-    productsTrigger.setAttribute(
-        "aria-expanded",
-        String(open)
-    );
-
-});
+        return;
+    }
 
 
-/* Close mobile menu after navigation */
+    /* =====================================================
+       PRODUCTS MEGA MENU
+       ===================================================== */
 
-document.querySelectorAll(".nav-link:not(.products-trigger)")
-    .forEach(link => {
+    const productsTrigger =
+        event.target.closest(".products-trigger");
 
-        link.addEventListener("click", () => {
+    if (productsTrigger) {
 
+        const productsMenu =
+            productsTrigger.closest(".has-megamenu");
+
+        if (!productsMenu) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen =
+            productsMenu.classList.toggle("menu-open");
+
+        productsTrigger.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       NAVIGATION LINK
+       Close mobile menu after clicking a normal link
+       ===================================================== */
+
+    const navLink =
+        event.target.closest(
+            ".desktop-navigation a:not(.products-trigger)"
+        );
+
+    if (navLink) {
+
+        const navigation =
+            document.querySelector(".desktop-navigation");
+
+        const mobileButton =
+            document.querySelector(".mobile-menu-button");
+
+        if (navigation) {
             navigation.classList.remove("menu-active");
+        }
 
-            mobileButton?.setAttribute(
+        if (mobileButton) {
+
+            mobileButton.setAttribute(
                 "aria-expanded",
                 "false"
             );
 
-        });
+            mobileButton.setAttribute(
+                "aria-label",
+                "Open Menu"
+            );
+        }
 
-    });
+        return;
+    }
+
+
+    /* =====================================================
+       CLICK OUTSIDE
+       ===================================================== */
+
+    const navigation =
+        document.querySelector(".desktop-navigation");
+
+    const mobileButtonElement =
+        document.querySelector(".mobile-menu-button");
+
+    if (
+        navigation &&
+        navigation.classList.contains("menu-active") &&
+        !event.target.closest(".site-header")
+    ) {
+
+        navigation.classList.remove("menu-active");
+
+        if (mobileButtonElement) {
+
+            mobileButtonElement.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            mobileButtonElement.setAttribute(
+                "aria-label",
+                "Open Menu"
+            );
+        }
+    }
+
+});
